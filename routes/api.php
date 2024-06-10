@@ -8,9 +8,10 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-
+//Restful API
 Route::get('/users', [UserController::class,'index'])->middleware('auth:sanctum');
-Route::post('/users', [UserController::class,'store'])->middleware('auth:sanctum');;
+Route::post('/users', [UserController::class,'store'])->middleware('auth:sanctum');
+//Login AccessToken
 Route::post('/login', [UserController::class,'login']);
 Route::put('/users/{id}', [UserController::class,'update'])->middleware('auth:sanctum');
 Route::delete('/users/{id}', [UserController::class,'delete'])->middleware('auth:sanctum');
